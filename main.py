@@ -17,7 +17,7 @@ if todayTuple in birthdaysDict:
     filePath = f"letter_templates/letter_{random.randint(1, 3)}.txt"
     with open(filePath) as letterFile:
         contents = letterFile.read()
-        contents.replace("[NAME]", birthdayPerson["name"])
+        contents = contents.replace("[NAME]", birthdayPerson["name"])
     with smtplib.SMTP("smtp.gmail.com") as connection:
         connection.starttls()
         connection.login(MYEMAIL, MYPASSWORD)
